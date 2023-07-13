@@ -46,7 +46,6 @@ export class PlayComponent implements OnInit {
   }
 
   nextQuestion() {
-    console.log(this.isFinish);
 
     let currentIterator = this.quizzIterator.next()
 
@@ -59,7 +58,7 @@ export class PlayComponent implements OnInit {
       let arrLength = currentQuestion.incorrect_answers.length
       let randomPosition = randomizer(0, arrLength)
 
-      this.answerArray = currentQuestion.incorrect_answers
+      this.answerArray = currentQuestion.incorrect_answers.slice()
       this.answerArray.splice(randomPosition, 0, currentQuestion.correct_answer)
 
     } else {

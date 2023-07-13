@@ -58,9 +58,6 @@ export class FetchDataService {
     }
     return forkJoin(stream$).pipe(tap(
       (result) => {
-        
-        console.log(result);
-        
       this.manageDataSrv.setQuizzes(result)
       this.manageDataSrv.nextQuizzes.next(result)
       }
