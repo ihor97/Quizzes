@@ -1,0 +1,29 @@
+<div class="container m-2">
+<div class="d-flex justify-content-center " style="width: 100vw;">
+    <div class="custom"   >
+        <div class="card-body" >
+            <h5 class="card-title">Question {{indexOfQuestion +1 }} of {{quizz.length}}</h5>
+            <p class="card-text">{{question}}</p>
+            <form  #form="ngForm" (submit)="sumbitAnswer()">
+
+                <div class="container">
+                    <div class="form-check" *ngFor="let answer of answerArray;let i=index">
+                        <input required class="form-check-input" ngModel type="radio" [value]="answer" name="answer" [id]="'a'+i">
+                        <label class="form-check-label" [for]="'a'+i">
+                            {{answer}}
+                        </label>
+                    </div>
+                  
+                </div>
+                
+                <button [disabled]="form.invalid"   type="submit"  class="btn btn-primary m-2">{{isFinish ? 'Finish': 'Next'}} </button>
+                <button  type="button" (click)="quitQuizz()" class="btn btn-danger">Quit Quizz </button>
+           
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</div>
+

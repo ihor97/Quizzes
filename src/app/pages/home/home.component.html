@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="text-center" > Quizzes</h1>
+  <div style="text-align: center;" *ngIf="!loaded">
+    <app-spinner></app-spinner>
+  </div>
+
+  <div *ngIf="loaded">
+
+      <div class="d-flex justify-content-center" >
+        <button  class="btn btn-success" (click)="getRandomQuizz()">I'm lucky</button>
+      </div>
+    
+    <div class="wrapper">
+      
+
+      <div class="card m-2" style="width: 18rem;" *ngFor="let quizz   of quizzes   ;let i =index ">
+        <div class="card-body">
+          <h5 class="card-title">Category: {{(quizz[0]?.category ) }}</h5>
+          <p class="card-text">Questions: {{quizz.length }}.</p>
+          <a href="#" [routerLink]="['/play',i]" class="card-link">Start Quizz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
